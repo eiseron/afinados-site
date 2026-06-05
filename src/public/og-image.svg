@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#16160f" />
+  <path
+    d="M120 470 C 520 450, 700 250, 1090 150 L 1090 470 Z"
+    fill="#e8460c"
+    fill-opacity="0.10"
+  />
+  <path
+    d="M120 470 C 520 450, 700 250, 1090 150"
+    fill="none"
+    stroke="#e8460c"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+  <text x="80" y="300" font-family="Arial, Helvetica, sans-serif" font-size="120" font-weight="800" fill="#fbfbf8" letter-spacing="-2">Afinados</text>
+  <text x="84" y="366" font-family="Arial, Helvetica, sans-serif" font-size="36" fill="#b8b4a6">Ferramentas de cálculo para preparação de motocicletas</text>
+  <text x="84" y="560" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#e8460c">afinados.io</text>
+</svg>

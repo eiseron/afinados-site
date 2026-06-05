@@ -15,12 +15,12 @@ const pt = {
   navTools: "Ferramentas",
   navDocs: "Documentação",
   navSim: "Abrir o simulador",
-  heroTitle: "Prepare sua moto com método, não no chute.",
+  heroTitle: "Prepare sua motocicleta com método, não no chute.",
   heroLead:
-    "O Afinados reúne ferramentas de cálculo para preparação de moto. A primeira já está no ar: estima a geometria do carburador e mostra, em uma curva, como cada mudança de agulha, gicle, clip ou venturi altera a passagem de combustível. Mais ferramentas vêm a caminho.",
+    "O Afinados reúne ferramentas de cálculo para preparação de motocicletas. A primeira já está no ar: estima a geometria do carburador e mostra, em uma curva, como cada mudança de agulha, gicle, clip ou venturi altera a passagem de combustível. Mais ferramentas vêm a caminho.",
   ctaPrimary: "Abrir o simulador",
   ctaGhost: "Ver a documentação",
-  carbAlt: "Carburador sendo montado em um motor de moto",
+  carbAlt: "Carburador sendo montado em um motor de motocicleta",
   concepts: [
     {
       title: "Uma curva por acerto",
@@ -41,7 +41,7 @@ const pt = {
   kartAlt: "Kart de corrida em alta velocidade numa pista",
   toolsTitle: "Ferramentas",
   toolsIntro:
-    "O Afinados cresce em ferramentas de preparação. Hoje, o acerto de carburador. Em breve, mais frentes da preparação de moto.",
+    "O Afinados cresce em ferramentas de preparação. Hoje, o acerto de carburador. Em breve, mais frentes da preparação de motocicletas.",
   tool1Title: "Área de passagem de combustível",
   tool1Body:
     "Estime e compare a área de passagem de um carburador Mikuni ao longo da posição do acelerador.",

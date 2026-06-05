@@ -3,6 +3,9 @@ import versions from "../versions.json";
 
 const appUrl = "https://app.afinados.io";
 const SITE_URL = "https://afinados.io";
+const SITE_DESCRIPTION =
+  "Afinados, ferramentas de cálculo para preparação de motocicletas.";
+const OG_IMAGE = `${SITE_URL}/og-image.svg`;
 
 function ptSidebar(): DefaultTheme.Sidebar {
   return {
@@ -71,13 +74,58 @@ export default defineConfig({
   cleanUrls: true,
   title: "Afinados",
   titleTemplate: ":title — Afinados",
-  description:
-    "Documentação do Afinados, ferramentas de cálculo para preparação de moto.",
+  description: SITE_DESCRIPTION,
   sitemap: { hostname: SITE_URL },
+
+  transformPageData(pageData) {
+    const url = `${SITE_URL}/${pageData.relativePath}`
+      .replace(/index\.md$/, "")
+      .replace(/\.md$/, "");
+    const title = pageData.frontmatter.title || pageData.title || "Afinados";
+    const description =
+      pageData.frontmatter.description || pageData.description || SITE_DESCRIPTION;
+    pageData.frontmatter.head ??= [];
+    pageData.frontmatter.head.push(
+      ["link", { rel: "canonical", href: url }],
+      ["meta", { property: "og:title", content: title }],
+      ["meta", { property: "og:description", content: description }],
+      ["meta", { property: "og:url", content: url }],
+      ["meta", { name: "twitter:title", content: title }],
+      ["meta", { name: "twitter:description", content: description }],
+    );
+  },
 
   head: [
     ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
-    ["meta", { name: "robots", content: "index, follow" }],
+    ["meta", { name: "robots", content: "index, follow, max-image-preview:large" }],
+    ["meta", { name: "theme-color", content: "#e9ebea", media: "(prefers-color-scheme: light)" }],
+    ["meta", { name: "theme-color", content: "#181a19", media: "(prefers-color-scheme: dark)" }],
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:site_name", content: "Afinados" }],
+    ["meta", { property: "og:image", content: OG_IMAGE }],
+    ["meta", { property: "og:image:type", content: "image/svg+xml" }],
+    ["meta", { property: "og:image:width", content: "1200" }],
+    ["meta", { property: "og:image:height", content: "630" }],
+    ["meta", { property: "og:image:alt", content: "Afinados" }],
+    ["meta", { name: "twitter:card", content: "summary_large_image" }],
+    ["meta", { name: "twitter:image", content: OG_IMAGE }],
+    ["meta", { name: "twitter:image:alt", content: "Afinados" }],
+    [
+      "script",
+      { type: "application/ld+json" },
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Afinados",
+        url: SITE_URL,
+        description: SITE_DESCRIPTION,
+        publisher: {
+          "@type": "Organization",
+          name: "Eiseron",
+          url: "https://eiseron.com",
+        },
+      }),
+    ],
   ],
 
   themeConfig: {
