@@ -1,0 +1,418 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import carburador from "../assets/carburador.webp";
+import yz250 from "../assets/yz250.webp";
+import kart from "../assets/kart.webp";
+
+const appUrl = "https://app.afinados.io";
+const docsUrl = "/docs";
+
+const concepts = [
+  {
+    title: "Uma curva por acerto",
+    body: "Plota a área livre de passagem de combustível ao longo do acelerador, do ponto morto à plena carga.",
+  },
+  {
+    title: "Comparação com sinal",
+    body: "Sobreponha dois acertos e veja onde um tem mais área (verde) ou menos (vermelho) que o outro.",
+  },
+  {
+    title: "Sem cadastro",
+    body: "Salve seus acertos no próprio navegador e abra cada um por uma URL própria. Nada de conta.",
+  },
+];
+
+const steps = [
+  {
+    n: "1",
+    title: "Monte o acerto",
+    body: "Escolha agulha, difusor, gicles, clip, calço e venturi a partir do catálogo.",
+  },
+  {
+    n: "2",
+    title: "Leia a curva",
+    body: "Alterne o eixo entre abertura do acelerador e curso da agulha conforme precisar.",
+  },
+  {
+    n: "3",
+    title: "Compare acertos",
+    body: "Salve e sobreponha acertos para enxergar a diferença antes de pôr a mão no motor.",
+  },
+];
+---
+
+<Base
+  title="Afinados, ferramentas de cálculo para preparação de moto"
+  description="O Afinados reúne ferramentas de cálculo para preparação de moto. A primeira estima a geometria do carburador e mostra, em uma curva, como cada mudança altera a passagem de combustível."
+>
+  <section class="hero">
+    <div class="container split">
+      <div class="hero-copy">
+        <h1>Prepare sua moto com método, não no chute.</h1>
+        <p class="lead">
+          O Afinados reúne ferramentas de cálculo para preparação de moto. A
+          primeira já está no ar: estima a geometria do carburador e mostra, em
+          uma curva, como cada mudança de agulha, gicle, clip ou venturi altera a
+          passagem de combustível. Mais ferramentas vêm a caminho.
+        </p>
+        <p class="hero-actions">
+          <a class="button button-primary" href={appUrl}>Abrir o simulador</a>
+          <a class="button button-ghost" href={docsUrl}>Ver a documentação</a>
+        </p>
+      </div>
+      <div class="split-media">
+        <Image
+          class="split-img"
+          src={carburador}
+          alt="Carburador sendo montado em um motor de moto"
+          widths={[600, 900, 1200]}
+          sizes="(min-width: 48rem) 32rem, 90vw"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="concepts">
+    <div class="container">
+      <ul class="card-grid concepts-grid">
+        {
+          concepts.map((c) => (
+            <li class="card">
+              <h2 class="card-title">{c.title}</h2>
+              <p>{c.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="split-section">
+    <div class="container split">
+      <div class="split-media">
+        <Image
+          class="split-img"
+          src={kart}
+          alt="Kart de corrida em alta velocidade numa pista"
+          widths={[600, 900, 1200]}
+          sizes="(min-width: 48rem) 32rem, 90vw"
+          loading="lazy"
+        />
+      </div>
+      <div>
+        <h2 class="section-title">Da bancada à pista</h2>
+        <p class="section-intro">
+          Entenda a curva, compare acertos e leve pro motor só o que os números
+          sustentam. Menos achismo, mais método.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ferramentas" class="tools">
+    <div class="container">
+      <h2 class="section-title">Ferramentas</h2>
+      <p class="section-intro">
+        O Afinados cresce em ferramentas de preparação. Hoje, o acerto de
+        carburador. Em breve, mais frentes da preparação de moto.
+      </p>
+
+      <ul class="card-grid tools-grid">
+        <li class="card tool-card">
+          <span class="tool-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8 38 C 22 36, 28 18, 40 10"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"></path>
+              <line
+                x1="8"
+                y1="38"
+                x2="40"
+                y2="38"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"></line>
+              <line
+                x1="8"
+                y1="38"
+                x2="8"
+                y2="10"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"></line>
+            </svg>
+          </span>
+          <h3 class="card-title">Área de passagem de combustível</h3>
+          <p>
+            Estime e compare a área de passagem de um carburador Mikuni ao longo
+            da posição do acelerador.
+          </p>
+          <a class="tool-link" href={appUrl}>Abrir a ferramenta</a>
+        </li>
+
+        <li class="card tool-card tool-card-soon">
+          <span class="badge">Em breve</span>
+          <span class="tool-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 8 L36 8 L27 24 L36 40 L12 40 L21 24 Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linejoin="round"></path>
+            </svg>
+          </span>
+          <h3 class="card-title">Dimensionamento de venturi</h3>
+          <p>Estime o tamanho ideal do venturi do carburador.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="container">
+      <h2 class="section-title">Como funciona</h2>
+      <ol class="steps">
+        {
+          steps.map((s) => (
+            <li class="step">
+              <span class="step-n" aria-hidden="true">
+                {s.n}
+              </span>
+              <div>
+                <h3 class="card-title">{s.title}</h3>
+                <p>{s.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="split-section cta">
+    <div class="container split">
+      <div class="cta-copy">
+        <h2 class="section-title">Acerte com números, não no chute.</h2>
+        <p class="hero-actions">
+          <a class="button button-primary" href={appUrl}>Abrir o simulador</a>
+        </p>
+      </div>
+      <div class="split-media">
+        <Image
+          class="split-img"
+          src={yz250}
+          alt="Moto de trilha Yamaha YZ250 numa pista de areia"
+          widths={[600, 900, 1200]}
+          sizes="(min-width: 48rem) 32rem, 90vw"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="disclaimer">
+    <div class="container">
+      <p>
+        O Afinados dá estimativas geométricas, não vazões medidas. Não substitui
+        teste em bancada, dinamômetro ou pista. Acerte por sua conta e risco.
+      </p>
+    </div>
+  </section>
+
+  <style>
+    /* Image-beside-text layout */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .split-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .hero {
+      padding-block: 4rem;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2rem, 5.5vw, 3.25rem);
+      margin: 0 0 1rem;
+      text-wrap: balance;
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin: 0 0 1.75rem;
+      max-width: 36rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 0 0 1rem;
+    }
+
+    .split-section {
+      padding-block: 3.5rem;
+    }
+
+    .cta .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+    }
+
+    /* Cards and steps */
+    .card-grid {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .concepts {
+      padding-block: 3.5rem 1.5rem;
+    }
+
+    .concepts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tool-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .tool-icon {
+      color: var(--accent);
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+
+    .tool-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .tool-link {
+      margin-top: auto;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--accent);
+    }
+
+    .tool-link::after {
+      content: " \2192";
+    }
+
+    .tool-card-soon {
+      opacity: 0.72;
+    }
+
+    .badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: var(--accent-fg);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+    }
+
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .step p {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+    }
+
+    .step-n {
+      flex: none;
+      width: 2.25rem;
+      height: 2.25rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-fg);
+      font-weight: 700;
+    }
+
+    .disclaimer {
+      padding-block: 2.5rem 4rem;
+    }
+
+    .disclaimer p {
+      margin: 0;
+      padding: 1.25rem 1.5rem;
+      background: var(--bg-elev);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      color: var(--fg);
+    }
+
+    @media (min-width: 48rem) {
+      .split {
+        grid-template-columns: 1fr 1fr;
+      }
+      .concepts-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</Base>
