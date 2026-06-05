@@ -31,8 +31,8 @@ const pt = {
       body: "Sobreponha dois acertos e veja onde um tem mais área (verde) ou menos (vermelho) que o outro.",
     },
     {
-      title: "Sem cadastro",
-      body: "Salve seus acertos no próprio navegador e abra cada um por uma URL própria. Nada de conta.",
+      title: "Gratuito",
+      body: "Use as ferramentas sem pagar nada. Salve seus acertos e abra cada um por uma URL própria.",
     },
   ],
   bandTitle: "Da bancada à pista",
@@ -103,8 +103,8 @@ const en = {
       body: "Overlay two setups and see where one has more area (green) or less (red) than the other.",
     },
     {
-      title: "No account",
-      body: "Save your setups in your own browser and open each by its own URL. No sign-up.",
+      title: "Free",
+      body: "Use the tools at no cost. Save your setups and open each by its own URL.",
     },
   ],
   bandTitle: "From the bench to the track",
