@@ -1,7 +1,6 @@
 # build output
-dist/
-# generated types
-.astro/
+.vitepress/dist/
+.vitepress/cache/
 # dependencies
 node_modules/
 # logs

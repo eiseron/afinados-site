@@ -30,7 +30,7 @@ build:
     - npm run build
   artifacts:
     paths:
-      - dist/
+      - .vitepress/dist/
     expire_in: 1 hour
 
 deploy:
@@ -39,7 +39,7 @@ deploy:
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
-    - npx wrangler@4 pages deploy dist --project-name=afinados-site --branch=main
+    - npx wrangler@4 pages deploy .vitepress/dist --project-name=afinados-site --branch=main
   environment:
     name: production
     url: https://afinados.io
