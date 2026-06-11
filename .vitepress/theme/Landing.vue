@@ -15,6 +15,7 @@ const pt = {
   navTools: "Ferramentas",
   navDocs: "Documentação",
   navSim: "Abrir o simulador",
+  langLabel: "Idioma",
   heroTitle: "Prepare sua motocicleta com método, não no chute.",
   heroLead:
     "O Afinados reúne ferramentas de cálculo para preparação de motocicletas. A primeira já está no ar: estima a geometria do carburador e mostra, em uma curva, como cada mudança de agulha, gicle, clip ou venturi altera a passagem de combustível. Mais ferramentas vêm a caminho.",
@@ -87,6 +88,7 @@ const en = {
   navTools: "Tools",
   navDocs: "Documentation",
   navSim: "Open the simulator",
+  langLabel: "Language",
   heroTitle: "Tune your bike with method, not guesswork.",
   heroLead:
     "Afinados is a set of calculation tools for motorcycle preparation. The first is already live: it estimates carburetor geometry and shows, in a curve, how each change of needle, jet, clip or venturi alters fuel passage. More tools are on the way.",
@@ -151,7 +153,8 @@ const en = {
   footerCopy: `Afinados, an Eiseron product. ${year}.`,
 };
 
-const t = lang.value.startsWith("en") ? en : pt;
+const isEn = lang.value.startsWith("en");
+const t = isEn ? en : pt;
 </script>
 
 <template>
@@ -163,6 +166,10 @@ const t = lang.value.startsWith("en") ? en : pt;
           <a class="nav-extra" href="#ferramentas">{{ t.navTools }}</a>
           <a class="nav-extra" :href="t.docsHref">{{ t.navDocs }}</a>
           <a :href="appUrl">{{ t.navSim }}</a>
+          <span class="lang-switch" role="group" :aria-label="t.langLabel">
+            <a href="/" target="_self" :class="{ active: !isEn }" :aria-current="!isEn ? 'true' : undefined" hreflang="pt-BR">PT</a>
+            <a href="/en/" target="_self" :class="{ active: isEn }" :aria-current="isEn ? 'true' : undefined" hreflang="en">EN</a>
+          </span>
         </nav>
       </div>
     </header>
@@ -303,6 +310,12 @@ const t = lang.value.startsWith("en") ? en : pt;
   --border: light-dark(#c8cac9, #2f312f);
   --container: 64rem;
   --radius: 0.75rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
 
   color-scheme: light dark;
   background: var(--bg);
@@ -370,6 +383,25 @@ h3 {
   color: #fbfbf8;
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding-inline-start: var(--space-md);
+  border-inline-start: 1px solid rgba(251, 251, 248, 0.18);
+}
+
+.lang-switch a {
+  color: rgba(251, 251, 248, 0.5);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.lang-switch a.active {
+  color: #fbfbf8;
+}
+
 /* Buttons */
 .button {
   display: inline-block;
@@ -405,7 +437,7 @@ section {
 
 .section-title {
   font-size: clamp(1.4rem, 3vw, 2rem);
-  margin: 0 0 0.5rem;
+  margin: 0 0 var(--space-md);
 }
 
 .section-intro {
@@ -460,6 +492,7 @@ section {
 
 .cta .section-title {
   font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin-bottom: var(--space-lg);
 }
 
 /* Cards and steps */
@@ -485,7 +518,7 @@ section {
 
 .card-title {
   font-size: 1.1rem;
-  margin: 0 0 0.5rem;
+  margin: 0 0 var(--space-xs);
 }
 
 .concepts {
@@ -498,6 +531,7 @@ section {
 
 .tools-grid {
   grid-template-columns: 1fr;
+  margin-top: var(--space-xl);
 }
 
 .tool-card {
@@ -549,10 +583,10 @@ section {
 
 .steps {
   list-style: none;
-  margin: 0;
+  margin: var(--space-xl) 0 0;
   padding: 0;
   display: grid;
-  gap: 1.25rem;
+  gap: var(--space-lg);
 }
 
 .step {
