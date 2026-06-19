@@ -45,7 +45,7 @@ const pt = {
     "O Afinados cresce em ferramentas de preparação. Hoje, o acerto de carburador. Em breve, mais frentes da preparação de motocicletas.",
   tool1Title: "Área de passagem de combustível",
   tool1Body:
-    "Estime e compare a área de passagem de um carburador Mikuni ao longo da posição do acelerador.",
+    "Estime e compare a área de passagem de um carburador Mikuni ou Keihin (incluindo cópias drop-in como NIBBI, KOSO e OKO) ao longo da posição do acelerador.",
   tool1Link: "Abrir a ferramenta",
   soon: "Em breve",
   tool2Title: "Dimensionamento de venturi",
@@ -118,7 +118,7 @@ const en = {
     "Afinados grows in preparation tools. Today, carburetor tuning. Soon, more fronts of motorcycle preparation.",
   tool1Title: "Fuel-passage area",
   tool1Body:
-    "Estimate and compare the fuel-passage area of a Mikuni carburetor across throttle position.",
+    "Estimate and compare the fuel-passage area of a Mikuni or Keihin carburetor (including drop-in clones such as NIBBI, KOSO and OKO) across throttle position.",
   tool1Link: "Open the tool",
   soon: "Coming soon",
   tool2Title: "Venturi sizing",
