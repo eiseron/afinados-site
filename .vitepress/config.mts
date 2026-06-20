@@ -10,7 +10,13 @@ const OG_IMAGE = `${SITE_URL}/og-image.svg`;
 function ptSidebar(): DefaultTheme.Sidebar {
   return {
     "/docs/": [
-      { text: "Início", items: [{ text: "Visão geral", link: "/docs/" }] },
+      {
+        text: "Início",
+        items: [
+          { text: "Visão geral", link: "/docs/" },
+          { text: "Novidades", link: "/docs/releases" },
+        ],
+      },
       {
         text: "Área de passagem de combustível",
         items: [
@@ -33,7 +39,13 @@ function ptSidebar(): DefaultTheme.Sidebar {
 function enSidebar(): DefaultTheme.Sidebar {
   return {
     "/en/docs/": [
-      { text: "Start", items: [{ text: "Overview", link: "/en/docs/" }] },
+      {
+        text: "Start",
+        items: [
+          { text: "Overview", link: "/en/docs/" },
+          { text: "What's new", link: "/en/docs/releases" },
+        ],
+      },
       {
         text: "Fuel-passage area",
         items: [
