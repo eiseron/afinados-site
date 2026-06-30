@@ -26,6 +26,14 @@ function ptSidebar(): DefaultTheme.Sidebar {
         ],
       },
       {
+        text: "Dimensionamento de admissão",
+        items: [
+          { text: "Visão geral", link: "/docs/intake-sizing/" },
+          { text: "Usando a interface", link: "/docs/intake-sizing/interface" },
+          { text: "O modelo", link: "/docs/intake-sizing/model" },
+        ],
+      },
+      {
         text: "Legal",
         items: [
           { text: "Política de Privacidade", link: "/docs/legal/privacy" },
@@ -52,6 +60,14 @@ function enSidebar(): DefaultTheme.Sidebar {
           { text: "Overview", link: "/en/docs/fuel-passage-area/" },
           { text: "Using the interface", link: "/en/docs/fuel-passage-area/interface" },
           { text: "The model", link: "/en/docs/fuel-passage-area/model" },
+        ],
+      },
+      {
+        text: "Intake sizing",
+        items: [
+          { text: "Overview", link: "/en/docs/intake-sizing/" },
+          { text: "Using the interface", link: "/en/docs/intake-sizing/interface" },
+          { text: "The model", link: "/en/docs/intake-sizing/model" },
         ],
       },
       {
