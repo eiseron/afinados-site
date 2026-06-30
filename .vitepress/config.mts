@@ -4,8 +4,8 @@ import versions from "../versions.json";
 const appUrl = "https://app.afinados.io";
 const SITE_URL = "https://afinados.io";
 const SITE_DESCRIPTION =
-  "Afinados, ferramentas de cálculo para preparação de motocicletas.";
-const OG_IMAGE = `${SITE_URL}/og-image.svg`;
+  "Afinados, ferramentas de cálculo para acerto e preparação de motores.";
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 function ptSidebar(): DefaultTheme.Sidebar {
   return {
@@ -110,12 +110,11 @@ export default defineConfig({
   head: [
     ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
     ["meta", { name: "robots", content: "index, follow, max-image-preview:large" }],
-    ["meta", { name: "theme-color", content: "#e9ebea", media: "(prefers-color-scheme: light)" }],
-    ["meta", { name: "theme-color", content: "#181a19", media: "(prefers-color-scheme: dark)" }],
+    ["meta", { name: "theme-color", content: "#e9ebea" }],
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:site_name", content: "Afinados" }],
     ["meta", { property: "og:image", content: OG_IMAGE }],
-    ["meta", { property: "og:image:type", content: "image/svg+xml" }],
+    ["meta", { property: "og:image:type", content: "image/png" }],
     ["meta", { property: "og:image:width", content: "1200" }],
     ["meta", { property: "og:image:height", content: "630" }],
     ["meta", { property: "og:image:alt", content: "Afinados" }],

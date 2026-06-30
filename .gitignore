@@ -10,3 +10,6 @@ npm-debug.log*
 .env.production
 # macOS
 .DS_Store
+
+# generated OG image
+src/public/og-image.png

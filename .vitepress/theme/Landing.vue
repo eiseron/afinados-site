@@ -18,7 +18,7 @@ const pt = {
   langLabel: "Idioma",
   heroTitle: "Prepare sua motocicleta com método, não no chute.",
   heroLead:
-    "O Afinados reúne ferramentas de cálculo para preparação de motocicletas. A primeira já está no ar: estima a geometria do carburador e mostra, em uma curva, como cada mudança de agulha, gicle, clip ou venturi altera a passagem de combustível. Mais ferramentas vêm a caminho.",
+    "O Afinados reúne ferramentas de cálculo para acerto e preparação de motores. Já são duas no ar: uma estima a geometria do carburador e mostra, em uma curva, como cada mudança de agulha, gicle, clip ou venturi altera a passagem de combustível; a outra dimensiona o carburador ou a borboleta ideal para o motor. Mais ferramentas vêm a caminho.",
   ctaPrimary: "Abrir o simulador",
   ctaGhost: "Ver a documentação",
   carbAlt: "Carburador sendo montado em um motor de motocicleta",
@@ -42,14 +42,18 @@ const pt = {
   kartAlt: "Kart de corrida em alta velocidade numa pista",
   toolsTitle: "Ferramentas",
   toolsIntro:
-    "O Afinados cresce em ferramentas de preparação. Hoje, o acerto de carburador. Em breve, mais frentes da preparação de motocicletas.",
+    "O Afinados cresce em ferramentas de preparação. Hoje, o acerto de carburador e o dimensionamento de admissão. Em breve, mais frentes.",
   tool1Title: "Área de passagem de combustível",
   tool1Body:
     "Estime e compare a área de passagem de um carburador Mikuni ou Keihin (incluindo cópias drop-in como NIBBI, KOSO e OKO) ao longo da posição do acelerador.",
   tool1Link: "Abrir a ferramenta",
+  tool2Title: "Dimensionamento de admissão",
+  tool2Body:
+    "Estime o tamanho ideal do carburador ou borboleta de injeção para um motor e veja como os tamanhos comerciais se encaixam na faixa de RPM.",
+  tool2Link: "Abrir a ferramenta",
   soon: "Em breve",
-  tool2Title: "Dimensionamento de venturi",
-  tool2Body: "Estime o tamanho ideal do venturi do carburador.",
+  tool3Title: "Dimensionamento de escape 2 tempos",
+  tool3Body: "Estime a geometria do escape ressonante para motor 2 tempos.",
   howTitle: "Como funciona",
   steps: [
     {
@@ -91,7 +95,7 @@ const en = {
   langLabel: "Language",
   heroTitle: "Tune your bike with method, not guesswork.",
   heroLead:
-    "Afinados is a set of calculation tools for motorcycle preparation. The first is already live: it estimates carburetor geometry and shows, in a curve, how each change of needle, jet, clip or venturi alters fuel passage. More tools are on the way.",
+    "Afinados is a set of calculation tools for engine tuning and preparation. Two are already live: one estimates carburetor geometry and shows, in a curve, how each change of needle, jet, clip or venturi alters fuel passage; the other sizes the ideal carburetor or throttle body for an engine. More tools are on the way.",
   ctaPrimary: "Open the simulator",
   ctaGhost: "Read the docs",
   carbAlt: "A carburetor being fitted to a motorcycle engine",
@@ -115,14 +119,18 @@ const en = {
   kartAlt: "A racing kart at speed on a track",
   toolsTitle: "Tools",
   toolsIntro:
-    "Afinados grows in preparation tools. Today, carburetor tuning. Soon, more fronts of motorcycle preparation.",
+    "Afinados grows in preparation tools. Today, carburetor tuning and intake sizing. Soon, more fronts.",
   tool1Title: "Fuel-passage area",
   tool1Body:
     "Estimate and compare the fuel-passage area of a Mikuni or Keihin carburetor (including drop-in clones such as NIBBI, KOSO and OKO) across throttle position.",
   tool1Link: "Open the tool",
+  tool2Title: "Intake sizing",
+  tool2Body:
+    "Estimate the ideal carburetor or throttle body size for an engine and see how commercial sizes fit the RPM band.",
+  tool2Link: "Open the tool",
   soon: "Coming soon",
-  tool2Title: "Venturi sizing",
-  tool2Body: "Estimate the ideal carburetor venturi size.",
+  tool3Title: "Two-stroke exhaust sizing",
+  tool3Body: "Estimate the tuned exhaust geometry for a two-stroke engine.",
   howTitle: "How it works",
   steps: [
     {
@@ -164,7 +172,7 @@ const t = isEn ? en : pt;
         <a class="brand" :href="t.homeHref">Afinados</a>
         <nav class="nav">
           <a class="nav-extra" href="#ferramentas">{{ t.navTools }}</a>
-          <a class="nav-extra" :href="t.docsHref">{{ t.navDocs }}</a>
+          <a :href="t.docsHref">{{ t.navDocs }}</a>
           <a :href="appUrl">{{ t.navSim }}</a>
           <span class="lang-switch" role="group" :aria-label="t.langLabel">
             <a href="/" target="_self" :class="{ active: !isEn }" :aria-current="!isEn ? 'true' : undefined" hreflang="pt-BR">PT</a>
@@ -233,8 +241,7 @@ const t = isEn ? en : pt;
               <a class="tool-link" :href="appUrl">{{ t.tool1Link }}</a>
             </li>
 
-            <li class="card tool-card tool-card-soon">
-              <span class="badge">{{ t.soon }}</span>
+            <li class="card tool-card">
               <span class="tool-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 8 L36 8 L27 24 L36 40 L12 40 L21 24 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" />
@@ -242,6 +249,18 @@ const t = isEn ? en : pt;
               </span>
               <h3 class="card-title">{{ t.tool2Title }}</h3>
               <p>{{ t.tool2Body }}</p>
+              <a class="tool-link" :href="`${appUrl}/carburetion/intake-sizing`">{{ t.tool2Link }}</a>
+            </li>
+
+            <li class="card tool-card tool-card-soon">
+              <span class="badge">{{ t.soon }}</span>
+              <span class="tool-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 28 L20 28 L26 16 L42 16 L42 32 L26 32 L20 20 L6 20 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <h3 class="card-title">{{ t.tool3Title }}</h3>
+              <p>{{ t.tool3Body }}</p>
             </li>
           </ul>
         </div>
@@ -317,12 +336,16 @@ const t = isEn ? en : pt;
   --space-lg: 1.5rem;
   --space-xl: 2.5rem;
 
-  color-scheme: light dark;
+  color-scheme: light;
   background: var(--bg);
   color: var(--fg);
   min-height: 100dvh;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
+}
+
+:global(html.dark) .afn-landing {
+  color-scheme: dark;
 }
 
 .afn-landing :deep(*) {
@@ -669,7 +692,7 @@ section {
     grid-template-columns: repeat(3, 1fr);
   }
   .tools-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>

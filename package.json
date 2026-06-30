@@ -3,11 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "generate:og": "node scripts/generate-og.mjs",
     "dev": "vitepress dev --host",
+    "prebuild": "node scripts/generate-og.mjs",
     "build": "vitepress build",
     "preview": "vitepress preview"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "vitepress": "^1.6.0"
   }
 }
