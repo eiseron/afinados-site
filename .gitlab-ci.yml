@@ -28,6 +28,7 @@ build:
   script:
     - npm ci --cache .npm --prefer-offline
     - npm run build
+    - npm run check:seo
   artifacts:
     paths:
       - .vitepress/dist/

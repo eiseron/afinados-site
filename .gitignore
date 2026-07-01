@@ -13,3 +13,8 @@ npm-debug.log*
 
 # generated OG image
 src/public/og-image.png
+
+# generated icons
+src/public/favicon.ico
+src/public/favicon-32.png
+src/public/apple-touch-icon.png

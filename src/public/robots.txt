@@ -1,0 +1,5 @@
+# https://afinados.io
+User-agent: *
+Allow: /
+
+Sitemap: https://afinados.io/sitemap.xml

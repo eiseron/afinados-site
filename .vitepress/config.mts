@@ -103,7 +103,16 @@ export default defineConfig({
   title: "Afinados",
   titleTemplate: ":title — Afinados",
   description: SITE_DESCRIPTION,
-  sitemap: { hostname: SITE_URL },
+  sitemap: {
+    hostname: SITE_URL,
+    transformItems(items) {
+      return items.map((item) => {
+        if (!item.links) return item;
+        const fallback = item.links.find((link) => link.lang === "pt-BR") ?? item.links[0];
+        return { ...item, links: [...item.links, { lang: "x-default", url: fallback.url }] };
+      });
+    },
+  },
 
   transformPageData(pageData) {
     const url = `${SITE_URL}/${pageData.relativePath}`
@@ -125,6 +134,8 @@ export default defineConfig({
 
   head: [
     ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+    ["link", { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" }],
+    ["link", { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" }],
     ["meta", { name: "robots", content: "index, follow, max-image-preview:large" }],
     ["meta", { name: "theme-color", content: "#e9ebea" }],
     ["meta", { property: "og:type", content: "website" }],

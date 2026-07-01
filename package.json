@@ -4,8 +4,10 @@
   "type": "module",
   "scripts": {
     "generate:og": "node scripts/generate-og.mjs",
+    "generate:icons": "node scripts/generate-icons.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
     "dev": "vitepress dev --host",
-    "prebuild": "node scripts/generate-og.mjs",
+    "prebuild": "node scripts/generate-og.mjs && node scripts/generate-icons.mjs",
     "build": "vitepress build",
     "preview": "vitepress preview"
   },
