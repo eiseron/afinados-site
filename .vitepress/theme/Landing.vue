@@ -197,6 +197,8 @@ const t = isEn ? en : pt;
             <img
               class="split-img"
               src="/carburador.webp"
+              srcset="/carburador-480.webp 480w, /carburador-800.webp 800w, /carburador.webp 1200w"
+              sizes="(min-width: 48rem) 30rem, 92vw"
               :alt="t.carbAlt"
               width="1200"
               height="800"
@@ -220,7 +222,16 @@ const t = isEn ? en : pt;
       <section class="split-section">
         <div class="container split">
           <div class="split-media">
-            <img class="split-img" src="/kart.webp" :alt="t.kartAlt" width="1200" height="675" loading="lazy" />
+            <img
+              class="split-img"
+              src="/kart.webp"
+              srcset="/kart-480.webp 480w, /kart-800.webp 800w, /kart.webp 1200w"
+              sizes="(min-width: 48rem) 30rem, 92vw"
+              :alt="t.kartAlt"
+              width="1200"
+              height="675"
+              loading="lazy"
+            />
           </div>
           <div>
             <h2 class="section-title">{{ t.bandTitle }}</h2>
@@ -297,7 +308,16 @@ const t = isEn ? en : pt;
             </p>
           </div>
           <div class="split-media">
-            <img class="split-img" src="/yz250.webp" :alt="t.yzAlt" width="1200" height="800" loading="lazy" />
+            <img
+              class="split-img"
+              src="/yz250.webp"
+              srcset="/yz250-480.webp 480w, /yz250-800.webp 800w, /yz250.webp 1200w"
+              sizes="(min-width: 48rem) 30rem, 92vw"
+              :alt="t.yzAlt"
+              width="1200"
+              height="800"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -332,6 +352,7 @@ const t = isEn ? en : pt;
   --primary: light-dark(#121210, #ededdf);
   --primary-fg: light-dark(#fbfbf8, #121210);
   --accent: light-dark(#e8460c, #ff5a24);
+  --accent-text: light-dark(#c2390b, #ff5a24);
   --accent-fg: #fbfbf8;
   --border: light-dark(#c8cac9, #2f312f);
   --container: 64rem;
@@ -586,7 +607,7 @@ section {
   margin-top: auto;
   font-weight: 600;
   text-decoration: none;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .tool-link::after {

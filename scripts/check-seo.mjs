@@ -67,6 +67,19 @@ for (const image of ["carburador.webp", "kart.webp", "yz250.webp"]) {
   );
 }
 
+for (const base of ["carburador", "kart", "yz250"]) {
+  for (const width of ["480", "800"]) {
+    check(`${base}-${width}.webp responsive variant exists`, existsSync(join(dist, `${base}-${width}.webp`)));
+  }
+}
+
+const headersPath = join(dist, "_headers");
+check("_headers exists", existsSync(headersPath));
+if (existsSync(headersPath)) {
+  const headers = readFileSync(headersPath, "utf8");
+  check("_headers caches hashed assets immutably", /\/assets\/\*[\s\S]*immutable/.test(headers));
+}
+
 if (failures.length > 0) {
   process.stderr.write("SEO checks failed:\n");
   failures.forEach((f) => process.stderr.write(`  - ${f}\n`));
