@@ -53,6 +53,20 @@ if (existsSync(icoPath)) {
 
 check("apple-touch-icon.png exists", existsSync(join(dist, "apple-touch-icon.png")));
 
+const IMAGE_BUDGET_BYTES = 260 * 1024;
+for (const image of ["carburador.webp", "kart.webp", "yz250.webp"]) {
+  const path = join(dist, image);
+  if (!existsSync(path)) {
+    check(`${image} exists`, false);
+    continue;
+  }
+  const bytes = readFileSync(path).length;
+  check(
+    `${image} is within the ${IMAGE_BUDGET_BYTES / 1024} KiB budget (${Math.round(bytes / 1024)} KiB)`,
+    bytes <= IMAGE_BUDGET_BYTES,
+  );
+}
+
 if (failures.length > 0) {
   process.stderr.write("SEO checks failed:\n");
   failures.forEach((f) => process.stderr.write(`  - ${f}\n`));

@@ -194,7 +194,14 @@ const t = isEn ? en : pt;
             </p>
           </div>
           <div class="split-media">
-            <img class="split-img" src="/carburador.webp" :alt="t.carbAlt" width="1800" height="1200" />
+            <img
+              class="split-img"
+              src="/carburador.webp"
+              :alt="t.carbAlt"
+              width="1200"
+              height="800"
+              fetchpriority="high"
+            />
           </div>
         </div>
       </section>
@@ -213,7 +220,7 @@ const t = isEn ? en : pt;
       <section class="split-section">
         <div class="container split">
           <div class="split-media">
-            <img class="split-img" src="/kart.webp" :alt="t.kartAlt" width="1800" height="1012" loading="lazy" />
+            <img class="split-img" src="/kart.webp" :alt="t.kartAlt" width="1200" height="675" loading="lazy" />
           </div>
           <div>
             <h2 class="section-title">{{ t.bandTitle }}</h2>
@@ -290,7 +297,7 @@ const t = isEn ? en : pt;
             </p>
           </div>
           <div class="split-media">
-            <img class="split-img" src="/yz250.webp" :alt="t.yzAlt" width="1800" height="1200" loading="lazy" />
+            <img class="split-img" src="/yz250.webp" :alt="t.yzAlt" width="1200" height="800" loading="lazy" />
           </div>
         </div>
       </section>
