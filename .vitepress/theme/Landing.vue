@@ -173,7 +173,7 @@ const t = isEn ? en : pt;
         <nav class="nav">
           <a class="nav-extra" href="#ferramentas">{{ t.navTools }}</a>
           <a :href="t.docsHref">{{ t.navDocs }}</a>
-          <a :href="appUrl">{{ t.navSim }}</a>
+          <a class="nav-extra" :href="appUrl">{{ t.navSim }}</a>
           <span class="lang-switch" role="group" :aria-label="t.langLabel">
             <a href="/" target="_self" :class="{ active: !isEn }" :aria-current="!isEn ? 'true' : undefined" hreflang="pt-BR">PT</a>
             <a href="/en/" target="_self" :class="{ active: isEn }" :aria-current="isEn ? 'true' : undefined" hreflang="en">EN</a>
