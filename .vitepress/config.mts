@@ -6,6 +6,7 @@ const SITE_URL = "https://afinados.io";
 const SITE_DESCRIPTION =
   "Afinados, ferramentas de cálculo para acerto e preparação de motores.";
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
+const VERSIONED_PATH = /(^|\/)v\d+(\.\d+)*\//;
 
 function ptSidebar(): DefaultTheme.Sidebar {
   return {
@@ -106,11 +107,13 @@ export default defineConfig({
   sitemap: {
     hostname: SITE_URL,
     transformItems(items) {
-      return items.map((item) => {
-        if (!item.links) return item;
-        const fallback = item.links.find((link) => link.lang === "pt-BR") ?? item.links[0];
-        return { ...item, links: [...item.links, { lang: "x-default", url: fallback.url }] };
-      });
+      return items
+        .filter((item) => !VERSIONED_PATH.test(item.url))
+        .map((item) => {
+          if (!item.links) return item;
+          const fallback = item.links.find((link) => link.lang === "pt-BR") ?? item.links[0];
+          return { ...item, links: [...item.links, { lang: "x-default", url: fallback.url }] };
+        });
     },
   },
 
@@ -121,8 +124,12 @@ export default defineConfig({
     const title = pageData.frontmatter.title || pageData.title || "Afinados";
     const description =
       pageData.frontmatter.description || pageData.description || SITE_DESCRIPTION;
+    const robots = VERSIONED_PATH.test(pageData.relativePath)
+      ? "noindex, follow"
+      : "index, follow, max-image-preview:large";
     pageData.frontmatter.head ??= [];
     pageData.frontmatter.head.push(
+      ["meta", { name: "robots", content: robots }],
       ["link", { rel: "canonical", href: url }],
       ["meta", { property: "og:title", content: title }],
       ["meta", { property: "og:description", content: description }],
@@ -136,7 +143,6 @@ export default defineConfig({
     ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
     ["link", { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" }],
     ["link", { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" }],
-    ["meta", { name: "robots", content: "index, follow, max-image-preview:large" }],
     ["meta", { name: "theme-color", content: "#e9ebea" }],
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:site_name", content: "Afinados" }],

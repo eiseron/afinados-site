@@ -27,6 +27,21 @@ if (existsSync(sitemapPath)) {
   const sitemap = readFileSync(sitemapPath, "utf8");
   check("sitemap.xml uses the production hostname", sitemap.includes("https://afinados.io/"));
   check('sitemap.xml declares hreflang="x-default"', sitemap.includes('hreflang="x-default"'));
+  check("sitemap.xml excludes versioned docs", !/\/v\d+\.\d+\//.test(sitemap));
+}
+
+const versionedPage = join(dist, "docs", "v0.1", "fuel-passage-area", "model.html");
+check("versioned page is built", existsSync(versionedPage));
+if (existsSync(versionedPage)) {
+  const html = readFileSync(versionedPage, "utf8");
+  check("versioned page is noindex", /<meta name="robots" content="noindex/.test(html));
+}
+
+const latestPage = join(dist, "docs", "fuel-passage-area", "model.html");
+check("latest page is built", existsSync(latestPage));
+if (existsSync(latestPage)) {
+  const html = readFileSync(latestPage, "utf8");
+  check("latest page is indexable", /<meta name="robots" content="index, follow/.test(html));
 }
 
 const icoPath = join(dist, "favicon.ico");
