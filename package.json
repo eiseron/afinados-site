@@ -9,10 +9,13 @@
     "dev": "vitepress dev --host",
     "prebuild": "node scripts/generate-og.mjs && node scripts/generate-icons.mjs",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "test": "vitest"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
-    "vitepress": "^1.6.0"
+    "gray-matter": "^4.0.3",
+    "vitepress": "^1.6.0",
+    "vitest": "^4.1.9"
   }
 }

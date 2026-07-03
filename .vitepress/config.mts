@@ -1,5 +1,11 @@
-import { defineConfig, type DefaultTheme } from "vitepress";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { defineConfig } from "vitepress";
 import versions from "../versions.json";
+import { sidebarConfig } from "./sidebar";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const srcDir = path.resolve(__dirname, "../src");
 
 const appUrl = "https://app.afinados.io";
 const SITE_URL = "https://afinados.io";
@@ -8,81 +14,7 @@ const SITE_DESCRIPTION =
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
 const VERSIONED_PATH = /(^|\/)v\d+(\.\d+)*\//;
 
-function ptSidebar(): DefaultTheme.Sidebar {
-  return {
-    "/docs/": [
-      {
-        text: "Início",
-        items: [
-          { text: "Visão geral", link: "/docs/" },
-          { text: "Novidades", link: "/docs/releases" },
-        ],
-      },
-      {
-        text: "Área de passagem de combustível",
-        items: [
-          { text: "Visão geral", link: "/docs/fuel-passage-area/" },
-          { text: "Usando a interface", link: "/docs/fuel-passage-area/interface" },
-          { text: "O modelo", link: "/docs/fuel-passage-area/model" },
-        ],
-      },
-      {
-        text: "Dimensionamento de admissão",
-        items: [
-          { text: "Visão geral", link: "/docs/intake-sizing/" },
-          { text: "Usando a interface", link: "/docs/intake-sizing/interface" },
-          { text: "O modelo", link: "/docs/intake-sizing/model" },
-        ],
-      },
-      {
-        text: "Legal",
-        items: [
-          { text: "Política de Privacidade", link: "/docs/legal/privacy" },
-          { text: "Termos de uso", link: "/docs/legal/terms" },
-        ],
-      },
-    ],
-  };
-}
-
-function enSidebar(): DefaultTheme.Sidebar {
-  return {
-    "/en/docs/": [
-      {
-        text: "Start",
-        items: [
-          { text: "Overview", link: "/en/docs/" },
-          { text: "What's new", link: "/en/docs/releases" },
-        ],
-      },
-      {
-        text: "Fuel-passage area",
-        items: [
-          { text: "Overview", link: "/en/docs/fuel-passage-area/" },
-          { text: "Using the interface", link: "/en/docs/fuel-passage-area/interface" },
-          { text: "The model", link: "/en/docs/fuel-passage-area/model" },
-        ],
-      },
-      {
-        text: "Intake sizing",
-        items: [
-          { text: "Overview", link: "/en/docs/intake-sizing/" },
-          { text: "Using the interface", link: "/en/docs/intake-sizing/interface" },
-          { text: "The model", link: "/en/docs/intake-sizing/model" },
-        ],
-      },
-      {
-        text: "Legal",
-        items: [
-          { text: "Privacy Policy", link: "/en/docs/legal/privacy" },
-          { text: "Terms of Use", link: "/en/docs/legal/terms" },
-        ],
-      },
-    ],
-  };
-}
-
-function versionNav(prefix: string): DefaultTheme.NavItemWithChildren | null {
+function versionNav(prefix: string) {
   if (versions.length === 0) return null;
   const latest = versions[versions.length - 1];
   return {
@@ -192,7 +124,7 @@ export default defineConfig({
           { text: "Simulador", link: appUrl },
           ...(ptVersions ? [ptVersions] : []),
         ],
-        sidebar: ptSidebar(),
+        sidebar: sidebarConfig(srcDir, versions, "", "Visão geral"),
         outlineTitle: "Nesta página",
         returnToTopLabel: "Voltar ao topo",
         sidebarMenuLabel: "Menu",
@@ -210,7 +142,7 @@ export default defineConfig({
           { text: "Simulator", link: appUrl },
           ...(enVersions ? [enVersions] : []),
         ],
-        sidebar: enSidebar(),
+        sidebar: sidebarConfig(srcDir, versions, "en", "Overview"),
       },
     },
   },

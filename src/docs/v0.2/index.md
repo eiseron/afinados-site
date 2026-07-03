@@ -1,5 +1,6 @@
 ---
 title: Documentação do Afinados
+nav_section: Início
 description: Documentação de usuário do Afinados, as ferramentas de acerto de carburador.
 ---
 
