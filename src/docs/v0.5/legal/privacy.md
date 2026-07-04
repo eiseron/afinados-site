@@ -1,0 +1,65 @@
+---
+title: Política de Privacidade
+nav_title: Política de privacidade
+description: Como o Afinados trata seus dados.
+---
+
+# Política de Privacidade
+
+Última atualização: julho de 2026.
+
+O Afinados é um produto da Eiseron. Esta política descreve quais dados o Afinados trata e por quê. O produto é guest-first: você usa as ferramentas sem cadastro.
+
+## Quem é o controlador
+
+A Eiseron LTDA (CNPJ 41.516.538/0001-30) é a controladora dos dados tratados pelo Afinados. Contato: contact@eiseron.com. O canal do encarregado pelo tratamento de dados pessoais (DPO) é contact@eiseron.com.
+
+## Dados que tratamos
+
+- **Cookie de sessão.** Um único cookie assinado de primeira parte, estritamente necessário. Ele guarda dois valores distintos: o segredo usado na proteção contra CSRF (segurança) e um token aleatório de convidado, que liga seus acertos salvos a este navegador sem cadastro. Os dois não são o mesmo valor. Não identificam você pessoalmente e não são usados para rastreio nem publicidade.
+- **Acertos salvos.** Dados técnicos de carburador (agulha, gicles, clip, calço, venturi). Não são dados pessoais.
+- **Logs de erro.** Quando algo falha, registramos o erro para diagnóstico e segurança. **Antes de armazenar, removemos identificadores diretos como o IP e a identificação do navegador**, de modo que o registro guardado é de-identificado. A coleta e o processamento usam ferramenta própria auto-hospedada (OpenObserve); o armazenamento se apoia no Cloudflare R2 como operador.
+- **Métricas de uso.** Usamos o Cloudflare Web Analytics, uma analytics **agregada e sem cookies**, que conta visitas e páginas sem rastrear indivíduos e sem criar perfil.
+- **Entrega e proteção (Cloudflare).** Para servir e proteger o site, a Cloudflare processa o IP de quem acessa.
+
+Não há cadastro nem coleta de dados pessoais de identificação do convidado, e não usamos outras ferramentas de analytics ou marketing.
+
+## Base legal
+
+O cookie de sessão é tratado como **estritamente necessário** ao serviço. Logs de erro e métricas agregadas se apoiam no **legítimo interesse** de manter o serviço seguro e funcional, de forma proporcional e sem rastreio individual.
+
+## Onde os dados ficam e segurança
+
+O aplicativo, o banco de dados e o monitoramento de erros rodam em **servidores fora do Brasil** (infraestrutura própria auto-hospedada), e os logs de erro **de-identificados** são armazenados no **Cloudflare R2**, também fora do Brasil. Adotamos medidas de segurança razoáveis para proteger o serviço, e os backups são cifrados e guardados fora do servidor.
+
+## Compartilhamento e transferência internacional
+
+Não vendemos seus dados nem os compartilhamos para marketing. O serviço roda em **infraestrutura própria hospedada fora do Brasil**, e usamos a Cloudflare como operadora para entrega, proteção e armazenamento (Cloudflare R2). Por isso, seu IP e os logs de erro **de-identificados** podem ser processados em servidores **fora do Brasil**. Essas transferências internacionais se apoiam em salvaguardas contratuais e técnicas compatíveis com a LGPD.
+
+## Links de recomendação e afiliação
+
+O Afinados pode exibir recomendações de produtos de terceiros. Ao clicar em uma delas, você é levado ao site do terceiro, que pode registrar o acesso e usar cookies próprios, inclusive um identificador que atribui a ele a origem da visita (afiliação) para fins de comissão. Esse tratamento ocorre fora do Afinados e é regido pela política de privacidade do terceiro. **Não compartilhamos seus dados pessoais com esses terceiros**; é o seu clique que leva você até eles.
+
+## Retenção e exclusão
+
+Seus acertos persistem enquanto o cookie e o registro existirem. Você pode **apagar acertos** a qualquer momento dentro da ferramenta, e limpar os cookies do navegador remove o vínculo com este dispositivo. Os logs de erro de-identificados são retidos por até **90 dias** e depois descartados.
+
+## Seus direitos
+
+Conforme a LGPD (art. 18), você pode solicitar a qualquer tempo, pelo contato abaixo:
+
+- confirmação de que tratamos seus dados e acesso a eles;
+- correção de dados incompletos ou desatualizados;
+- anonimização, bloqueio ou eliminação de dados desnecessários;
+- informação sobre com quem os dados são compartilhados;
+- eliminação dos dados tratados.
+
+O canal para questões de privacidade é contact@eiseron.com. Você também pode apresentar reclamação à **Autoridade Nacional de Proteção de Dados (ANPD)**.
+
+## Crianças e adolescentes
+
+O Afinados não é direcionado a menores de 18 anos e não coletamos conscientemente dados pessoais de crianças e adolescentes.
+
+## Alterações
+
+Podemos atualizar esta política. A data de "última atualização" no topo indica a versão vigente.
