@@ -11,12 +11,6 @@ Esta ferramenta estima a **área de passagem de combustível** de um carburador,
 
 Veja [Usando a interface](interface.md) para um tour completo dos controles, e [O modelo](model.md) para o que é calculado e as aproximações conhecidas.
 
-## Como funciona a passagem de combustível
-
-O carburador puxa combustível porque a admissão cria vácuo no venturi (veja [Dimensionamento de admissão](../intake-sizing/index.md)). Esse vácuo empurra o combustível por caminhos estreitos, e o quanto passa depende do tamanho desses caminhos: passagem maior deixa passar mais combustível pro mesmo vácuo, deixando a mistura mais rica; passagem menor deixa a mistura mais pobre.
-
-Dois caminhos trabalham juntos. Em marcha lenta, quem manda é o **gicle de baixa**, um furo fixo sempre aberto. Conforme o acelerador abre, a **agulha** sobe e se afasta do **difusor**, alargando um vão anular entre os dois; esse vão está em série com o **gicle de alta**, então o gargalo mais estreito da fila é quem manda em cada instante. É por isso que a curva do gráfico começa baixa, na contribuição do gicle de baixa, e sobe suavemente conforme a agulha abre espaço, sem nunca ultrapassar o que o gicle de alta permite.
-
 ## Conceitos principais
 
 ### Acerto

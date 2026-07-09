@@ -18,12 +18,12 @@ v = Vt × VE × RPM / (10 × N × π × D²)   (m/s)
 
 Onde:
 
-- **v**: velocidade de pico no estrangulamento do venturi (m/s)
-- **Vt**: cilindrada total (cm³)
-- **VE**: eficiência volumétrica de pico (0,5 a 1,15)
-- **RPM**: rotação do motor
-- **N**: *divisor de pulso*, função de cilindros, carburadores, corpos e intervalo entre explosões (ver abaixo)
-- **D**: diâmetro do venturi (mm)
+- **v** — velocidade de pico no estrangulamento do venturi (m/s)
+- **Vt** — cilindrada total (cm³)
+- **VE** — eficiência volumétrica de pico (0,5 a 1,15)
+- **RPM** — rotação do motor
+- **N** — *divisor de pulso*, função de cilindros, carburadores, corpos e intervalo entre explosões (ver abaixo)
+- **D** — diâmetro do venturi (mm)
 
 Dois extremos importam:
 
@@ -34,7 +34,7 @@ Cada linha comercial no gráfico é colorida pela velocidade que ela entrega em 
 
 ## Velocidade-alvo via perfil de aplicação (K)
 
-O **perfil de aplicação** (original, esportivo, competição, uma constante K por opção) codifica qual velocidade de pico a montagem está mirando. Substituindo a clássica fórmula de dimensionamento via Bernoulli na fórmula de velocidade, todas as variáveis do motor se cancelam e sobra uma relação limpa:
+O **perfil de aplicação** (original, esportivo, competição — uma constante K por opção) codifica qual velocidade de pico a montagem está mirando. Substituindo a clássica fórmula de dimensionamento via Bernoulli na fórmula de velocidade, todas as variáveis do motor se cancelam e sobra uma relação limpa:
 
 ```
 v_target = 100 × P_abs / (π × K²)   (m/s)
@@ -73,7 +73,7 @@ Para setups típicos de 1 carburador por cilindro, `N = venturis = carburadores 
 ## Aproximações conhecidas
 
 - **Duração da admissão** assumida em ~240° de virabrequim. Comandos reais variam de 200° a 280°.
-- **Sobreposição de pulsos** modelada com escala linear simples: pulsos sobrepostos dividem o carburador proporcionalmente à sobreposição. Motores reais têm ondas de pressão mais complexas.
+- **Sobreposição de pulsos** modelada com escala linear simples — pulsos sobrepostos dividem o carburador proporcionalmente à sobreposição. Motores reais têm ondas de pressão mais complexas.
 - **Intervalo entre explosões** é um campo manual, com padrão de **180°** (explosão uniforme de um 4 cilindros). Ele não deriva do número de cilindros: para outras contagens de cilindros ou motores de explosão desigual (twins 270°, V8 cross-plane), ajuste o intervalo manualmente.
 - **VE** é o valor de *pico* (slider único). O gráfico avalia velocidade neste pico; motores reais veem VE menor fora da rotação de pico.
 
