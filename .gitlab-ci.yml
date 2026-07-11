@@ -4,7 +4,7 @@ include:
     ref: v0.1.7
   - project: eiseron/stack/ci
     file: /templates/preview-pages-trigger.yml
-    ref: v0.9.7
+    ref: v0.9.46
     inputs:
       pages_project: afinados-site
       dist_dir: .vitepress/dist
