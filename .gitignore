@@ -18,3 +18,5 @@ src/public/og-image.png
 src/public/favicon.ico
 src/public/favicon-32.png
 src/public/apple-touch-icon.png
+
+.claude/
